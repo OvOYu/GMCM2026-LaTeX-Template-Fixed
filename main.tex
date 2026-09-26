@@ -1,0 +1,62 @@
+\documentclass[UTF8,fontset=windows,zihao=-4]{ctexart}
+\usepackage{gmcm2026-format}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,graphicx,pdfpages,float,tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{algorithm,algpseudocode}
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入：}}
+\renewcommand{\algorithmicensure}{\textbf{输出：}}
+\algrenewcommand\algorithmicfor{\textbf{对}}
+\algrenewcommand\algorithmicdo{\textbf{执行}}
+\algrenewtext{EndFor}{\textbf{结束循环}}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xurl}
+\usepackage[hidelinks,unicode]{hyperref}
+\renewcommand{\bibfont}{\songti\normalsize}
+\setlength{\bibsep}{0bp}
+\input{settings}
+\hypersetup{pdftitle={\PaperTitle},pdfauthor={},pdfsubject={},pdfkeywords={}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\includepdf[pages=1,fitpaper=true,pagecommand={%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+  % 遮住空白原模板的页码0；原封面PDF不变。
+  \fill[white] ([xshift=-18bp,yshift=42bp]current page.south) rectangle
+               ([xshift=18bp,yshift=66bp]current page.south);
+  \node[anchor=base west,font=\songti\fontsize{18bp}{22bp}\selectfont] at
+     ([xshift=190bp,yshift=456.6bp]current page.south west) {\TeamSchool};
+  \node[anchor=base west,font=\songti\fontsize{18bp}{22bp}\selectfont] at
+     ([xshift=190bp,yshift=398.4bp]current page.south west) {\TeamNumber};
+  \node[anchor=base west,font=\songti\fontsize{18bp}{22bp}\selectfont] at
+     ([xshift=213bp,yshift=366bp]current page.south west) {\MemberOne};
+  \node[anchor=base west,font=\songti\fontsize{18bp}{22bp}\selectfont] at
+     ([xshift=213bp,yshift=333.7bp]current page.south west) {\MemberTwo};
+  \node[anchor=base west,font=\songti\fontsize{18bp}{22bp}\selectfont] at
+     ([xshift=213bp,yshift=301.5bp]current page.south west) {\MemberThree};
+  \end{tikzpicture}}]{assets/official-cover.pdf}
+\clearpage
+\setcounter{page}{1}
+\hypersetup{pageanchor=true}
+\vspace*{28bp}
+\noindent\includegraphics[width=\textwidth]{assets/official-abstract-header.pdf}\par
+\vspace{22bp}
+\begin{center}{\heiti\zihao{3}\PaperTitle\par}\end{center}
+\vspace{12bp}
+\begin{center}{\songti 摘\quad 要}\end{center}
+\input{sections/abstract}
+\vspace{12bp}
+\noindent\songti 关键词：\PaperKeywords
+\clearpage
+\input{sections/body}
+\ifWithReferences
+  \clearpage
+  \bibliographystyle{gmcm-reference}
+  \bibliography{references}
+\fi
+\ifWithAppendix
+  \clearpage
+  \appendix
+  \input{sections/appendix}
+\fi
+\end{document}

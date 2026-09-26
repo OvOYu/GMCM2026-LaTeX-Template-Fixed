@@ -1,0 +1,30 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gmcm2026-format}[2026/09/22 Original official-source layout]
+% 页面实测参数取官方.doc；字号取附件2。bp是Word/PDF的点。
+\RequirePackage[paperwidth=595.3bp,paperheight=841.9bp,
+ top=85.1bp,bottom=49.65bp,left=63.8bp,right=63.7bp,
+ includefoot,footskip=23.8bp,headheight=0bp,headsep=0bp]{geometry}
+\RequirePackage{fancyhdr}
+\RequirePackage{caption}
+\setmainfont{Times New Roman}
+\renewcommand{\baselinestretch}{1}
+% 12/15.6为实现单倍正文的基线值，不是官方另定的固定行距。
+\renewcommand\normalsize{\@setfontsize\normalsize{12bp}{15.6bp}%
+ \abovedisplayskip=7bp plus2bp minus2bp
+ \belowdisplayskip=7bp plus2bp minus2bp
+ \abovedisplayshortskip=3bp plus2bp
+ \belowdisplayshortskip=3bp plus2bp}
+\AtBeginDocument{\songti\normalsize}
+\ctexset{section={format=\centering\heiti\zihao{4},beforeskip=12bp,afterskip=8bp},
+ subsection={format=\songti\zihao{-4},beforeskip=8bp,afterskip=5bp},
+ subsubsection={format=\songti\zihao{-4},beforeskip=6bp,afterskip=4bp}}
+\setlength{\parindent}{24bp}
+\setlength{\parskip}{0bp}
+\setlength{\emergencystretch}{2em}
+\pagestyle{fancy}\fancyhf{}
+\fancyfoot[C]{\normalfont\fontsize{9bp}{11bp}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\normalfont\fontsize{9bp}{11bp}\selectfont\thepage}%
+ \renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+\captionsetup{font=normalsize,labelfont=normalfont,textfont=normalfont,labelsep=quad}
+\endinput
